@@ -1,0 +1,27 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  z-index: 100;
+}
+.main-nav a {
+  text-decoration: none;
+}
+.main-nav .logo {
+  color: #f20808;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.main-nav .search {
+  color: #cbc7c6;
+  display: inline-block;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.scrolled {
+  background: #111;
+}

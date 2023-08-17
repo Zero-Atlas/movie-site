@@ -1,0 +1,21 @@
+.movie-list {
+  display: flex;
+  gap: 1rem;
+  overflow: scroll;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.movie-list::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-list-item img {
+  height: 15rem;
+  transition: all ease-in-out 100ms;
+}
+.movie-list.backdrop .movie-list-item img {
+  height: 10rem;
+}
+.movie-list-item:hover img {
+  transform: scale(110%);
+}

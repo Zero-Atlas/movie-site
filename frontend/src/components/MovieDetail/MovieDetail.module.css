@@ -1,0 +1,42 @@
+.movie-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  gap: 2rem;
+}
+.closes {
+  width: 100%;
+  text-align: right;
+  grid-column: 1/-1;
+}
+.closes button {
+  background-color: #111;
+  color: #555;
+  font-size: 4rem;
+  font-weight: 700;
+  border: none;
+}
+.closes button:hover {
+  cursor: pointer;
+}
+.textbox,
+.trailer {
+  color: #fff;
+}
+.trailer img {
+  width: 100%;
+}
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 1.5rem 0;
+  border-bottom: #fff solid 2px;
+}
+.release {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+.voted {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}

@@ -1,0 +1,22 @@
+.search-results {
+  padding: 4rem 1rem;
+  color: #fff;
+}
+.search-results h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+.movie {
+  width: 10%;
+  object-fit: cover;
+}
+.movie img {
+  width: 100%;
+}

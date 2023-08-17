@@ -2,7 +2,7 @@ import MovieContext from "./movie-context";
 
 const MovieContextProvider = (props) => {
   const requests = {
-    API_KEY: API_KEY,
+    API_KEY: process.env.API_KEY,
     fetchTrending: `${process.env.server}/api/movies/trending?token=${process.env.userToken}`,
     fetchNetflixOriginals: `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_network=123`,
     fetchTopRated: `${process.env.server}/api/movies/top-rate?token=${process.env.userToken}`,

@@ -14,6 +14,8 @@ module.exports=class UserToken{
       let userToken=[]
       if(!err){
         userToken=JSON.parse(fileContent)
+      }else{
+        console.log('token Err:',err)
       }
 
       cb(userToken)

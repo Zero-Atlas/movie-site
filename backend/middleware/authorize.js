@@ -8,6 +8,7 @@ router.use("/", (req, res, next) => {
   const token = req.query.token;
   UserToken.fetchAll((tokenList) => {
     let auth = false;
+    console.log(tokenList)
     tokenList.forEach((user) => {
       if (user.token === token) auth = true;
     });

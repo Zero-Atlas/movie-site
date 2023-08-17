@@ -14,8 +14,8 @@ const MovieList = (props) => {
   useEffect(() => {
     const getData = async () => {
       const response = await fetch(ctx[props.category]);
-      console.log(response)
       const data = await response.json();
+      console.log("Link:", ctx[props.category], "Data:", data);
 
       if (!response.ok) {
         console.log(data.message);

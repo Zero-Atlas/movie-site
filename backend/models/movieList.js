@@ -1,8 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+const main = require('require-main-filename')()
+
 
 const DATA_PATH = path.join(
-  path.dirname(require.main.filename),
+  path.dirname(main),
   "datas",
   "movieList.json"
 );

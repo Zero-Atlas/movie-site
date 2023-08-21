@@ -11,7 +11,7 @@ const MovieDatail = (props) => {
       const response = await fetch(
         `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`
       );
-      const data = await response.body();
+      const data = await response.json();
 
       console.log(response);
       console.log(data);

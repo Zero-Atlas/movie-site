@@ -5,7 +5,6 @@ const main = require('require-main-filename')()
 
 const DATA_PATH = path.join(
   path.dirname(main),
-  "datas",
   "movieList.json"
 );
 

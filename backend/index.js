@@ -1,4 +1,5 @@
 const http = require("http");
+const path = require("path");
 
 const express = require("express");
 const cors = require("cors");
@@ -18,6 +19,8 @@ app.set("trust proxy", 1);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname,'datas')))
 
 app.use(authorize);
 

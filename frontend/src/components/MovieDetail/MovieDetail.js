@@ -28,8 +28,11 @@ const MovieDatail = (props) => {
         setKey(data.key);
         console.log(data);
       }
+      return;
     };
-    getTrailerList();
+    getTrailerList().catch((err) => {
+      console.log(err);
+    });
   }, [ctx, props]);
 
   const onCloseHandler = () => {

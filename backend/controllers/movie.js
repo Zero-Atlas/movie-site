@@ -85,7 +85,7 @@ exports.postVideo = (req, res, next) => {
   }
 
   VideoList.find().then((list) => {
-    const [videos] = list.filter((item) => item.id === movieId);
+    const videos = list.filter((item) => item.id === movieId)[0];
     if (!videos) {
       return res
         .status(404)
@@ -100,25 +100,25 @@ exports.postVideo = (req, res, next) => {
         (v.type === "Trailer" || v.type === "Teaser")
     );
     // check has valid video
-    if (!updatedList) {
+    if (updatedList.length < 1) {
       return res
         .status(404)
         .send(JSON.stringify({ message: "Not found video" }));
     }
-    console.log('valid',updatedList);
+    console.log("valid", updatedList);
 
     // Trailer has more priority
     const hasTrailer = updatedList.filter((v) => v.type === "Trailer");
     if (hasTrailer) {
-      updatedList = hasTrailer
+      updatedList = hasTrailer;
     }
-    console.log('trailer',updatedList);
+    console.log("trailer", updatedList);
 
     //sort video by published_at
     updatedList = updatedList.sort(
       (a, b) => new Date(a.published_at) - new Date(b.published_at)
     );
-      console.log('end',updatedList);
+    console.log("end", updatedList);
     return res.status(200).send(JSON.stringify(updatedList[0]));
   });
 };

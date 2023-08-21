@@ -10,7 +10,7 @@ const videoSchema = new Schema({
     site:{type:String},
     type:{type:String},
     published_at:{type:String},
-    offical:{type:Boolean}
+    official:{type:Boolean}
   }],
 });
 

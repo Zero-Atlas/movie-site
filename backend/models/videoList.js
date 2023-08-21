@@ -6,9 +6,12 @@ const videoSchema = new Schema({
   id: {
     type: Number,
   },
-  videos: {
-    type: Array,
-  },
+  videos: [{
+    site:{type:String},
+    type:{type:String},
+    published_at:{type:String},
+    offical:{type:Boolean}
+  }],
 });
 
 module.exports = mongoose.model("Video", videoSchema);

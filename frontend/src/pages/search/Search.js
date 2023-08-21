@@ -17,9 +17,7 @@ const Search = () => {
     if (lang) url = url + "&lang=" + lang;
     if (year) url = url + "&year=" + year;
 
-    const response = await fetch(url, {
-      method: "POST",
-    });
+    const response = await fetch(url);
     const data = await response.json();
     if (!response.ok) {
       console.log(data.message);

@@ -9,7 +9,7 @@ const MovieDatail = (props) => {
   useEffect(() => {
     const getTrailerList = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/api/movies/video?film_id=${props.movieData.id}`,
+        `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`,
         { method: "POST" }
       );
       if (response.status !== 200) {

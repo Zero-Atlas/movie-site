@@ -54,10 +54,7 @@ const MovieDatail = (props) => {
           ></iframe>
         ) : (
           <img
-            src={
-              bannerData &&
-              `https://image.tmdb.org/t/p/original/${bannerData.backdrop_path}`
-            }
+            src={`https://image.tmdb.org/t/p/original/${props.movieData.backdrop_path}`}
             alt="movie's backdrop"
           />
         )}

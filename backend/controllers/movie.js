@@ -85,7 +85,7 @@ exports.postVideo = (req, res, next) => {
   }
 
   VideoList.find().then((list) => {
-    const videos = list.find((item) => item.id === movieId);
+    const [videos] = list.filter((item) => item.id === movieId);
     if (!videos) {
       return res
         .status(404)

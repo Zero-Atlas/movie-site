@@ -17,6 +17,7 @@ const MovieDatail = (props) => {
         "video link:",
         `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`
       );
+      console.log(response);
 
       if (response.status !== 200) {
         const data = await response.json();

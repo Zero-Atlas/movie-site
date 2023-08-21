@@ -13,9 +13,6 @@ const MovieDatail = (props) => {
       );
       const data = await response.json();
 
-      console.log(response);
-      console.log(data);
-
       if (!response.ok) {
         setKey("");
         setMessage(data.message);
@@ -24,10 +21,9 @@ const MovieDatail = (props) => {
       }
     };
 
-    getTrailerList()
-      .catch((err) => {
-        console.log(err);
-      });
+    getTrailerList().catch((err) => {
+      console.log(err);
+    });
   }, [ctx, props]);
 
   const onCloseHandler = () => {
@@ -57,7 +53,13 @@ const MovieDatail = (props) => {
             src={`https://www.youtube.com/embed/${key}`}
           ></iframe>
         ) : (
-          <h3>{message}</h3>
+          <img
+            src={
+              bannerData &&
+              `https://image.tmdb.org/t/p/original/${bannerData.backdrop_path}`
+            }
+            alt="movie's backdrop"
+          />
         )}
       </div>
     </div>

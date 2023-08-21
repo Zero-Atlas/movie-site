@@ -5,7 +5,7 @@ const paging = require("../utils/paging");
 
 exports.getTrending = (req, res, next) => {
   const page = req.query.page || 1;
-  MovieList.fetchAll((movieList) => {
+  MovieList.findAll().then((movieList) => {
     // get trending movie
     const trendingMovies = movieList
       .filter((m) => m.popularity >= 1000)
@@ -23,7 +23,7 @@ exports.getTrending = (req, res, next) => {
 
 exports.getTopRate = (req, res, next) => {
   const page = req.query.page || 1;
-  MovieList.fetchAll((movieList) => {
+  MovieList.findAll().then((movieList) => {
     // get top-rate movie
     const topRateMovies = movieList
       .filter((m) => m.vote_average >= 5)
@@ -49,8 +49,8 @@ exports.getGenre = (req, res, next) => {
       .send(JSON.stringify({ message: "Not found gerne parram" }));
   }
 
-  MovieList.fetchAll((movieList) => {
-    GenreList.fetchAll((genreList) => {
+  MovieList.findAll().then((movieList) => {
+    GenreList.findAll().then((genreList) => {
       // get genre by param
       const genreInfo = genreList.find((g) => g.id === genre);
       if (!genreInfo) {
@@ -84,7 +84,7 @@ exports.postVideo = (req, res, next) => {
       .send(JSON.stringify({ message: "Not found that film_id parram" }));
   }
 
-  VideoList.fetchAll((list) => {
+  VideoList.findAll().then((list) => {
     const videos = list.find((item) => item.id === movieId);
     if (!videos) {
       return res
@@ -122,7 +122,7 @@ exports.postVideo = (req, res, next) => {
 };
 
 exports.getGenreList = (req, res, next) => {
-  GenreList.fetchAll((list) => {
+  GenreList.findAll().then((list) => {
     res.send(JSON.stringify(list));
   });
 };
@@ -138,7 +138,7 @@ exports.postSearch = (req, res, next) => {
     return res.status(400).send({ message: "Not found keyword parram" });
   }
   const lowerCaseParrams = q.toLowerCase();
-  MovieList.fetchAll((movieList) => {
+  MovieList.findAll().then((movieList) => {
     // get search results movie
     let searchResults = movieList.filter((m) => {
       const overview = m.overview,

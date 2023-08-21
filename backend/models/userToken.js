@@ -1,23 +1,14 @@
-const fs = require("fs");
-const path = require("path");
-const main = require('require-main-filename')()
+const mongoose = require("mongoose");
 
-const DATA_PATH = path.join(
-  path.dirname(main),
-  "userToken.json"
-);
+const Schema = mongoose.Schema;
 
-module.exports=class UserToken{
-  static fetchAll(cb){
-    fs.readFile(DATA_PATH,(err,fileContent)=>{
-      let userToken=[]
-      if(!err){
-        userToken=JSON.parse(fileContent)
-      }else{
-        console.log('token Err:',err)
-      }
+const userSchema = new Schema({
+  userId: {
+    type: String,
+  },
+  token: {
+    type: String,
+  },
+});
 
-      cb(userToken)
-    })
-  }
-}
+module.exports = mongoose.model("User", userSchema);

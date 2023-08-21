@@ -1,21 +1,14 @@
-const fs = require("fs");
-const path = require("path");
-const main = require('require-main-filename')()
+const mongoose = require("mongoose");
 
-const DATA_PATH = path.join(
-  path.dirname(main),
-  "videoList.json"
-);
+const Schema = mongoose.Schema;
 
-module.exports=class VideoList{
-  static fetchAll(cb){
-    fs.readFile(DATA_PATH,(err,fileContent)=>{
-      let videoList=[]
-      if(!err){
-        videoList=JSON.parse(fileContent)
-      }
+const videoSchema = new Schema({
+  id: {
+    type: Number,
+  },
+  videos: {
+    type: Array,
+  },
+});
 
-      cb(videoList)
-    })
-  }
-}
+module.exports = mongoose.model("Video", videoSchema);

@@ -1,21 +1,14 @@
-const fs = require("fs");
-const path = require("path");
-const main = require('require-main-filename')()
+const mongoose = require("mongoose");
 
-const DATA_PATH = path.join(
-  path.dirname(main),
-  "genreList.json"
-);
+const Schema = mongoose.Schema;
 
-module.exports=class GenreList{
-  static fetchAll(cb){
-    fs.readFile(DATA_PATH,(err,fileContent)=>{
-      let genreList=[]
-      if(!err){
-        genreList=JSON.parse(fileContent)
-      }
+const genreSchema = new Schema({
+  id: {
+    type: Number,
+  },
+  name: {
+    type: String,
+  },
+});
 
-      cb(genreList)
-    })
-  }
-}
+module.exports = mongoose.model("Genre", genreSchema);

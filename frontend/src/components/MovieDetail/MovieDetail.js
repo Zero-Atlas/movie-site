@@ -23,17 +23,21 @@ const MovieDatail = (props) => {
         const data = await response.json();
         setKey("");
         setMessage(data.message);
-        console.log(data);
+        return data;
       } else {
         const data = await response.json();
         setKey(data.key);
-        console.log(data);
+        return data;
       }
-      return;
     };
-    getTrailerList().catch((err) => {
-      console.log(err);
-    });
+    
+    getTrailerList()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [ctx, props]);
 
   const onCloseHandler = () => {

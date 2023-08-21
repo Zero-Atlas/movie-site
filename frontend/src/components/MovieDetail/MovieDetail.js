@@ -12,13 +12,21 @@ const MovieDatail = (props) => {
         `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`,
         { method: "POST" }
       );
+
+      console.log(
+        "video link:",
+        `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`
+      );
+
       if (response.status !== 200) {
         const data = await response.json();
         setKey("");
         setMessage(data.message);
+        console.log(data);
       } else {
         const data = await response.json();
         setKey(data.key);
+        console.log(data);
       }
     };
     getTrailerList();

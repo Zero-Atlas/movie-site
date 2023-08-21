@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use("/", (req, res, next) => {
   const token = req.query.token;
-  UserToken.findAll().then((tokenList) => {
+  UserToken.find().then((tokenList) => {
     let auth = false;
     console.log('tokenList:',tokenList)
     tokenList.forEach((user) => {

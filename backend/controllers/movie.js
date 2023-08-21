@@ -116,8 +116,8 @@ exports.postVideo = (req, res, next) => {
     updatedList = updatedList.sort(
       (a, b) => new Date(a.published_at) - new Date(b.published_at)
     );
-
-    res.status(200).send(JSON.stringify(updatedList[0]));
+      console.log(updatedList[0]);
+    return res.status(200).send(JSON.stringify(updatedList[0]));
   });
 };
 

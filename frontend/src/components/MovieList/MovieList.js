@@ -15,7 +15,8 @@ const MovieList = (props) => {
     const getData = async () => {
       const response = await fetch(ctx[props.category]);
       const data = await response.json();
-
+      console.log("link:", ctx[props.category]);
+      console.log("data:", data);
       if (!response.ok) {
         console.log(data.message);
         throw json({ message: data.message, status: response.status });

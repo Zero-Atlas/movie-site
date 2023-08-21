@@ -89,7 +89,7 @@ exports.postVideo = (req, res, next) => {
     if (!videos) {
       return res
         .status(404)
-        .send(JSON.stringify({ message: "Not found video" }));
+        .send(JSON.stringify({ message: "Not found video id" }));
     }
 
     // search video by official, site, type

@@ -107,9 +107,9 @@ exports.postVideo = (req, res, next) => {
     }
 
     // Trailer has more priority
-    const hasTrailer = updatedList.find((v) => v.type === "Trailer");
+    const hasTrailer = updatedList.filter((v) => v.type === "Trailer");
     if (hasTrailer) {
-      updatedList = updatedList.filter((v) => v.type === "Trailer");
+      updatedList = hasTrailer
     }
 
     //sort video by published_at

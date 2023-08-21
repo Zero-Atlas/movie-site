@@ -105,18 +105,20 @@ exports.postVideo = (req, res, next) => {
         .status(404)
         .send(JSON.stringify({ message: "Not found video" }));
     }
+    console.log('valid',updatedList);
 
     // Trailer has more priority
     const hasTrailer = updatedList.filter((v) => v.type === "Trailer");
     if (hasTrailer) {
       updatedList = hasTrailer
     }
+    console.log('trailer',updatedList);
 
     //sort video by published_at
     updatedList = updatedList.sort(
       (a, b) => new Date(a.published_at) - new Date(b.published_at)
     );
-      console.log(updatedList[0]);
+      console.log('end',updatedList);
     return res.status(200).send(JSON.stringify(updatedList[0]));
   });
 };

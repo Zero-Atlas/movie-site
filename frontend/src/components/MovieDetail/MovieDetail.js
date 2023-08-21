@@ -11,25 +11,20 @@ const MovieDatail = (props) => {
       const response = await fetch(
         `${process.env.REACT_APP_SERVER}/api/movies/video?token=${process.env.REACT_APP_USER_TOKEN}&film_id=${props.movieData.id}`
       );
+      const data = await response.json();
 
       console.log(response);
+      console.log(data);
 
-      if (response.status !== 200) {
-        const data = await response.json();
+      if (!response.ok) {
         setKey("");
         setMessage(data.message);
-        return data;
       } else {
-        const data = await response.json();
         setKey(data.key);
-        return data;
       }
     };
 
     getTrailerList()
-      .then((result) => {
-        console.log(result);
-      })
       .catch((err) => {
         console.log(err);
       });
